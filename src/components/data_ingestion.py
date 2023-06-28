@@ -43,6 +43,7 @@ class DataIngestion:
             raise CustomException(e,sys)
 
 
-
+a = DataIngestion()
+a.initiate_ingestion()
 
 
