@@ -7,6 +7,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from data_transformation import Datatransformation
+
+
 @dataclass
 class DataIngestionConfig:
     train_data_path:str = os.path.join("artifacts","train.csv")
@@ -24,7 +27,7 @@ class DataIngestion:
             df = pd.read_csv('notebook\data\stud.csv')
             logging.info("Reading the dataset as dataframe")
 
-            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path))
+            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data)
 
             logging.info("Train test split initiated")
@@ -41,9 +44,15 @@ class DataIngestion:
         except Exception as e:
             logging.exception(e)
             raise CustomException(e,sys)
+        
 
+if __name__=="__main__":
+    ing = DataIngestion()
+    train_path,test_path  = ing.initiate_ingestion()
 
-a = DataIngestion()
-a.initiate_ingestion()
+    tr = Datatransformation()
+    
+    train,test,_ = tr.initiate_transformation(train_path=train_path,test_path=test_path)
+
 
 
