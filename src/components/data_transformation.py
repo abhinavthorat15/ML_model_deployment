@@ -76,8 +76,8 @@ class Datatransformation:
             train_target_column = train_data[target_column]
             test_target_column = test_data[target_column]
 
-            input_train_data_features_arr = master_pipeline.fit_transform(train_data)
-            input_test_data_features_arr = master_pipeline.transform(test_data)
+            input_train_data_features_arr = master_pipeline.fit_transform(input_train_data_features)
+            input_test_data_features_arr = master_pipeline.transform(input_test_data_features)
 
             train_array = np.c_[input_train_data_features_arr,np.array(train_target_column)]
             test_array = np.c_[input_test_data_features_arr,np.array(test_target_column)]
@@ -87,7 +87,7 @@ class Datatransformation:
                 obj = master_pipeline
             )
             logging.info("The train and test dataset have been transformed")
-            logging.debug("The preprocessing pipeline has been executed")
+            logging.info("The preprocessing pipeline has been executed and pipeline has been saved")
             return (
                 train_array,
                 test_array,

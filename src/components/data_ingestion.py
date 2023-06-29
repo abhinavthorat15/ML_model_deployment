@@ -45,14 +45,26 @@ class DataIngestion:
             logging.exception(e)
             raise CustomException(e,sys)
         
+from data_transformation import Datatransformation
+from model_trainer import  ModelTrainer
 
-if __name__=="__main__":
-    ing = DataIngestion()
-    train_path,test_path  = ing.initiate_ingestion()
 
-    tr = Datatransformation()
-    
-    train,test,_ = tr.initiate_transformation(train_path=train_path,test_path=test_path)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
