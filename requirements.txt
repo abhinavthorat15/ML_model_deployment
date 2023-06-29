@@ -1,9 +1,8 @@
-pandas 
-numpy
-seaborn
-matplotlib
-scikit-learn
-xgboost
-catboost
-flask
+catboost==1.2
+Flask==2.3.2
+numpy==1.24.3
+pandas==2.0.2
+scikit_learn==1.2.2
+setuptools==67.8.0
+xgboost==1.7.6
 #-e .
