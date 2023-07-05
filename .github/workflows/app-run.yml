@@ -22,8 +22,8 @@ jobs:
    
     - name: Build the Docker image
       run: 
-        docker build -t  abhinavthorat15/student_api .
-        docker push abhinavthorat15/student_api
+      docker build -t  abhinavthorat15/student_api .
+      docker push abhinavthorat15/student_api
 
 
   delivery:
