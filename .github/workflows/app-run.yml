@@ -21,9 +21,9 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
    
     - name: Build the Docker image
-      run: 
-      docker build -t student_api .
-      docker push student_api
+      run: | 
+      docker build -t abhinavthorat15/student_api .
+      docker push abhinavthorat15/student_api
 
 
   delivery:
@@ -32,6 +32,6 @@ jobs:
     steps:
       uses: actions/checkout@v3
     - name: Build the Docker image
-      run: 
-        docker pull student_api:latest
+      run: |
+        docker pull abhinavthorat15/student_api:latest
         docker run -p 5000:5000 student_api:latest  
