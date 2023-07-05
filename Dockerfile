@@ -1,7 +1,7 @@
 FROM python:3.8-slim-buster
 WORKDIR /app
 COPY . /app
-EXPOSE 5000
+EXPOSE 8080
 
 RUN apt update -y && apt install awscli -y
 
