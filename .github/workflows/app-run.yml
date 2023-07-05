@@ -33,7 +33,7 @@ jobs:
       redis:
         image: abhinavthorat15/student_api:latest
         ports: 
-          - 8080:8080
+          - 5000:8080
     steps:
     - name: checkout
       uses: actions/checkout@v3
@@ -41,4 +41,4 @@ jobs:
     - name: Run_image
       run: |
         docker pull abhinavthorat15/student_api:latest
-        docker run -p abhinavthorat15/student_api:latest  
+        docker run -p 8080:8080 abhinavthorat15/student_api:latest  
