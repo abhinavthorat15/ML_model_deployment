@@ -31,6 +31,7 @@ jobs:
     needs: build
     services: 
       redis:
+        image: abhinavthorat15/student_api:latest
         ports: 
           - 8080:8080
     steps:
