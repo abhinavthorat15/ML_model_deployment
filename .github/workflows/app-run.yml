@@ -29,13 +29,14 @@ jobs:
   delivery:
     runs-on: ubuntu-latest
     needs: build
+    services:
+      ports: 
+      - 8080:8080
     steps:
     - name: checkout
       uses: actions/checkout@v3
 
     - name: Run_image
-      services:
-        ports: - 8080:8080
       run: |
         docker pull abhinavthorat15/student_api:latest
         docker run -p 8080:8080 abhinavthorat15/student_api:latest  
